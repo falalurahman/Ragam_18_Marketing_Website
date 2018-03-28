@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function test() {
+            obj = {"eventId":3238,"totalFare":300,"attendingEvents":[{"programId":7273,"programName":"Ragam '18","subProgramName":"Proshow Day 2","fare":300,"attendees":[{"name":"Sikandar Yadav","email":"sikandar@thecollegfever.com","phone":"9788928317","college":"TheCollegeFever","sex":"MALE","extraInfoValue":"BENGALURU"}]},{"programId":7273,"programName":"Ragam '18","subProgramName":"Photography Workshop","fare":300,"attendees":[{"name":"Sikandar Yadav","email":"sikandar@thecollegfever.com","phone":"9788928317","college":"TheCollegeFever","sex":"MALE","extraInfoValue":"BENGALURU"}]}],"merchandiseList":[]};
+            dbParam = JSON.stringify(obj);
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                   document.getElementById("testdiv").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("POST", "listenPayment.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send(dbParam);
+        }
+    </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button onclick="test()">click</button>
+    <div id="testdiv"></div>
+</body>
+</html>
